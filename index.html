@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8" />
+    <title>There-to-one scrollytelling data visualization demo</title>
+    <meta name="description" content="" />
+    <meta name="author" content="Songhai Fan" />
+
+    <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link
+      href="//fonts.googleapis.com/css?family=Raleway:400,300,600"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="src/css/normalize.css" />
+    <link rel="stylesheet" href="src/css/skeleton.css" />
+    <link rel="stylesheet" href="src/css/three-to-one.css" />
+    <link rel="stylesheet" href="src/css/special_case.css" />
+
+    <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="src/images/favicon.ico" />
+  </head>
+
+  <body>
+    <!-- Scrollama Sideby Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <div class="chapter intro">
+      <div id="headline">
+        Three-to-one scrollytelling data visualization case study
+      </div>
+      <br />
+      <h1>
+        Talking about the extreme weather<br />
+        in Australia
+      </h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+        cupiditate, fugiat cum dolorem quod sint sapiente, repudiandae qui vitae
+        veniam itaque, ipsam sequi? Accusantium quae temporibus quis reiciendis
+        et distinctio iusto voluptate facere tenetur consectetur expedita, atque
+        ea architecto non quia nisi consequatur neque sint hic placeat incidunt
+        totam dolore nesciunt? Impedit pariatur, molestiae incidunt eveniet
+        veniam, dolores adipisci dolore voluptatum reiciendis quia odio
+        distinctio quae iste accusantium iure repellendus. Sint voluptate,
+        delectus odit dolores officia vel debitis hic commodi laboriosam
+        necessitatibus, molestiae nulla officiis accusantium quis reprehenderit
+        neque odio obcaecati aut. Iure magnam laudantium quod quo quam esse rem
+        possimus, non fugiat adipisci eos ipsa quaerat perferendis nam in
+        eligendi eius natus a laboriosam earum aliquid accusamus.
+      </p>
+      <strong>Scrolling to see how it works @ Songhai Fan.</strong>
+      <div class="scroll-downs">
+        <div class="mousey">
+          <div class="scroller"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="floatbar" id="interestbar">
+      <div id="station-input-wrapper" class="input-wrapper">
+        <label for="istation">Selected station:</label>
+        <select id="stationInput" name="istation"></select>
+      </div>
+      <div id="date-input-wrapper" class="input-wrapper">
+        <label for="idate">Selected date:</label>
+        <input
+          type="date"
+          id="dateInput"
+          name="idate"
+          min="1910-01-01"
+          max="2022-04-14"
+          value="2022-02-14"
+        />
+      </div>
+      <div id="type-input-wrapper" class="input-wrapper">
+        <label for="itype">Selected type:</label>
+        <select id="typeInput" name="itype">
+          <option value="tmax" selected="selected">
+            Maximum daily temparature
+          </option>
+          <option value="tmin">Minimum daily temparature</option>
+        </select>
+      </div>
+      <div id="threshold-input-wrapper" class="input-wrapper">
+        <label for="ithresh">Extreame threshold:</label>
+        <input
+          type="range"
+          id="threshInput"
+          name="ithresh"
+          min="0"
+          max="100"
+          step="5"
+          value="95"
+        />
+      </div>
+    </div>
+
+    <div class="chapter ridge">
+      <h1>Choose the station near you.</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+        dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+        ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
+        quis enim.
+      </p>
+
+      <div class="figure" id="fig_map">
+        <div class="tooltip" id="tooltipContainer_map"></div>
+        <p>0</p>
+      </div>
+    </div>
+
+    <div class="scrolly side">
+      <div class="article">
+        <div class="step">
+          <p>
+            <strong>The maximum daily temparature in current year.</strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis, rem adipisci veniam voluptate,
+            laudantium amet earum facere illum debitis incidunt consectetur.
+            Ducimus corporis tempore a ab exercitationem quasi blanditiis alias
+            doloremque? Distinctio, ut. Aperiam itaque illo delectus. Provident
+            qui repellendus inventore veritatis velit. Natus provident magni sed
+            quod totam quibusdam atque ipsam fugit, placeat eos, quas rerum a
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong>
+              Campared with 1910 (The earliest year in our dataset).
+            </strong>
+            Ducimus corporis tempore a ab exercitationem quasi blanditiis alias
+            doloremque? Distinctio, ut. Aperiam itaque illo delectus. Provident
+            qui repellendus inventore veritatis velit. Natus provident magni sed
+            quod totam quibusdam atque ipsam fugit, placeat eos, quas rerum a
+            reiciendis possimus ipsum? Modi impedit possimus iusto quo quis, ab
+            autem! Ad rerum molestias dolor enim. Impedit atque sit provident
+            iusto, vel deserunt incidunt, odit repellendus corporis libero
+            voluptatibus, excepturi veritatis enim? Id suscipit blanditiis
+            temporibus?
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong>
+              Zoom in to see the days around current calendar date.(+(-)7 days)
+            </strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis, rem adipisci veniam voluptate,
+            laudantium amet earum facere
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong>
+              Show all the history temparature around current calendar date. The
+              red refers to current year, pink refers to yeas in same decade.
+            </strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong>
+              Zoom in to see the days around current calendar date.(+(-)7 days)
+            </strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong>
+              Keep the extreme weather, days are higher than 95% days in the
+              history within the calendar month.
+            </strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong> Plot them by the order of year. </strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong> Plot them by temparature. </strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong> Show the all the dialy temparature. </strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            <strong> histogram. </strong>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis
+          </p>
+        </div>
+      </div>
+
+      <div class="figure" id="fig1">
+        <div class="tooltip" id="tooltipContainer1"></div>
+        <p>0</p>
+      </div>
+    </div>
+
+    <!-- <div class="chapter" style="max-width: none">
+      <h1>Sticky Side Right Example</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+        dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+        ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
+        quis enim.
+      </p>
+      <div class="figure" id="fig2a">
+        <p>0</p>
+      </div>
+    </div>
+
+    <div class="scrolly side">
+      <div class="figure" id="fig2">
+        <p>0</p>
+      </div>
+
+      <div class="article">
+        <div class="step">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis, rem adipisci veniam voluptate,
+            laudantium amet earum facere illum debitis incidunt consectetur.
+            Ducimus corporis tempore a ab exercitationem quasi blanditiis alias
+            doloremque? Distinctio, ut. Aperiam itaque illo delectus. Provident
+            qui repellendus inventore veritatis velit. Natus provident magni sed
+            quod totam quibusdam atque ipsam fugit, placeat eos, quas rerum a
+            reiciendis possimus ipsum? Modi impedit possimus iusto quo quis, ab
+            autem! Ad rerum molestias dolor enim. Impedit atque sit provident
+            iusto, vel deserunt incidunt, odit repellendus corporis libero
+            voluptatibus, excepturi veritatis enim? Id suscipit blanditiis
+            temporibus?
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis, rem adipisci veniam voluptate,
+            laudantium amet earum facere illum debitis incidunt consectetur.
+            Ducimus corporis tempore a ab exercitationem quasi blanditiis alias
+            doloremque? Distinctio, ut. Aperiam itaque illo delectus. Provident
+            qui repellendus inventore veritatis velit. Natus provident magni sed
+            quod totam quibusdam atque ipsam fugit, placeat eos, quas rerum a
+            reiciendis possimus ipsum? Modi impedit possimus iusto quo quis, ab
+            autem! Ad rerum molestias dolor enim. Impedit atque sit provident
+            iusto, vel deserunt incidunt, odit repellendus corporis libero
+            voluptatibus, excepturi veritatis enim? Id suscipit blanditiis
+            temporibus?
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis, rem adipisci veniam voluptate,
+            laudantium amet earum facere illum debitis incidunt consectetur.
+            Ducimus corporis tempore a ab exercitationem quasi blanditiis alias
+            doloremque? Distinctio, ut. Aperiam itaque illo delectus. Provident
+            qui repellendus inventore veritatis velit. Natus provident magni sed
+            quod totam quibusdam atque ipsam fugit, placeat eos, quas rerum a
+            reiciendis possimus ipsum? Modi impedit possimus iusto quo quis, ab
+            autem! Ad rerum molestias dolor enim. Impedit atque sit provident
+            iusto, vel deserunt incidunt, odit repellendus corporis libero
+            voluptatibus, excepturi veritatis enim? Id suscipit blanditiis
+            temporibus?
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis, rem adipisci veniam voluptate,
+            laudantium amet earum facere illum debitis incidunt consectetur.
+            Ducimus corporis tempore a ab exercitationem quasi blanditiis alias
+            doloremque? Distinctio, ut. Aperiam itaque illo delectus. Provident
+            qui repellendus inventore veritatis velit. Natus provident magni sed
+            quod totam quibusdam atque ipsam fugit, placeat eos, quas rerum a
+            reiciendis possimus ipsum? Modi impedit possimus iusto quo quis, ab
+            autem! Ad rerum molestias dolor enim. Impedit atque sit provident
+            iusto, vel deserunt incidunt, odit repellendus corporis libero
+            voluptatibus, excepturi veritatis enim? Id suscipit blanditiis
+            temporibus?
+          </p>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Scrollama Overlay Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+    <!-- <div class="chapter">
+      <h1>Sticky Overlay Example</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+        ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis
+        dis parturient montes, nascetur ridiculus mus. Donec quam felis,
+        ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa
+        quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget,
+        arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.
+        Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras
+        dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+        tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
+        enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+        Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean
+        imperdiet. Etiam ultricies nisi vel augue. Lorem ipsum dolor sit amet,
+        consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean
+        massa. Cum sociis natoque penatibus et magnis dis parturient montes,
+        nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque
+        eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede
+        justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo,
+        rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu
+        pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum
+        semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula,
+        porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante,
+        dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut
+        metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies
+        nisi vel augue.
+      </p>
+   
+      <h1>Heading</h1>
+      <h2>Heading</h2>
+      <h3>Heading</h3>
+      <h4>Heading</h4>
+      <h5>Heading</h5>
+      <h6>Heading</h6>
+
+   
+      <p>The base type is 15px over 1.6 line height (24px)</p>
+
+ 
+      <strong>Bolded</strong>
+      <em>Italicized</em>
+      <a>Colored</a>
+      <u>Underlined</u>
+    </div>
+
+    <div class="scrolly overlay">
+      <div class="figure" id="fig3">
+        <p>0</p>
+      </div>
+
+      <div class="article">
+        <div class="step">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis, rem adipisci veniam voluptate,
+            laudantium amet earum facere illum debitis incidunt consectetur.
+            Ducimus corporis tempore a ab exercitationem quasi blanditiis alias
+            doloremque? Distinctio, ut. Aperiam itaque illo delectus. Provident
+            qui repellendus inventore veritatis velit. Natus provident magni sed
+            quod totam quibusdam atque ipsam fugit, placeat eos, quas rerum a
+            reiciendis possimus ipsum? Modi impedit possimus iusto quo quis, ab
+            autem! Ad rerum molestias dolor enim. Impedit atque sit provident
+            iusto, vel deserunt incidunt, odit repellendus corporis libero
+            voluptatibus, excepturi veritatis enim? Id suscipit blanditiis
+            temporibus?
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis, rem adipisci veniam voluptate,
+            laudantium amet earum facere illum debitis incidunt consectetur.
+            Ducimus corporis tempore a ab exercitationem quasi blanditiis alias
+            doloremque? Distinctio, ut. Aperiam itaque illo delectus. Provident
+            qui repellendus inventore veritatis velit. Natus provident magni sed
+            quod totam quibusdam atque ipsam fugit, placeat eos, quas rerum a
+            reiciendis possimus ipsum? Modi impedit possimus iusto quo quis, ab
+            autem! Ad rerum molestias dolor enim. Impedit atque sit provident
+            iusto, vel deserunt incidunt, odit repellendus corporis libero
+            voluptatibus, excepturi veritatis enim? Id suscipit blanditiis
+            temporibus?
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis, rem adipisci veniam voluptate,
+            laudantium amet earum facere illum debitis incidunt consectetur.
+            Ducimus corporis tempore a ab exercitationem quasi blanditiis alias
+            doloremque? Distinctio, ut. Aperiam itaque illo delectus. Provident
+            qui repellendus inventore veritatis velit. Natus provident magni sed
+            quod totam quibusdam atque ipsam fugit, placeat eos, quas rerum a
+            reiciendis possimus ipsum? Modi impedit possimus iusto quo quis, ab
+            autem! Ad rerum molestias dolor enim. Impedit atque sit provident
+            iusto, vel deserunt incidunt, odit repellendus corporis libero
+            voluptatibus, excepturi veritatis enim? Id suscipit blanditiis
+            temporibus?
+          </p>
+        </div>
+        <div class="step">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
+            ex vel, eius alias dolor blanditiis, rem adipisci veniam voluptate,
+            laudantium amet earum facere illum debitis incidunt consectetur.
+            Ducimus corporis tempore a ab exercitationem quasi blanditiis alias
+            doloremque? Distinctio, ut. Aperiam itaque illo delectus. Provident
+            qui repellendus inventore veritatis velit. Natus provident magni sed
+            quod totam quibusdam atque ipsam fugit, placeat eos, quas rerum a
+            reiciendis possimus ipsum? Modi impedit possimus iusto quo quis, ab
+            autem! Ad rerum molestias dolor enim. Impedit atque sit provident
+            iusto, vel deserunt incidunt, odit repellendus corporis libero
+            voluptatibus, excepturi veritatis enim? Id suscipit blanditiis
+            temporibus?
+          </p>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="floatbar sticky-bottom" id="navbar">
+      <a href="#" id="previous">&laquo; Previous</a>
+      <div id="dynamic_nav_container"></div>
+      <a href="#" id="next">Next &raquo;</a>
+    </div>
+
+    <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- JS library
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://unpkg.com/d3-interpolate-path/build/d3-interpolate-path.min.js"></script>
+
+    <script src="https://unpkg.com/intersection-observer"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/arquero@latest"></script>
+
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

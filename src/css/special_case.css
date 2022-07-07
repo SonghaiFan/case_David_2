@@ -1,0 +1,53 @@
+.intro {
+  background-image: linear-gradient(transparent, var(--bg-color)),
+    url("https://picsum.photos/750/500?grayscale&blur=1");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.map_path {
+  fill: var(--bgr-transparent-low);
+  /* stroke: var(--font-color); */
+  stroke-width: 2px;
+  stroke-linejoin: round;
+}
+
+.station_rect {
+  fill: var(--green);
+}
+
+.station_rect:hover {
+  stroke: var(--font-color);
+  stroke-width: 2px;
+  transition: ease, 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.station_rect.is-selected {
+  stroke: var(--font-color);
+  stroke-width: 2px;
+  transition: ease, 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.input-wrapper {
+  float: right;
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.temp_line {
+  stroke: black;
+  stroke-width: 2px;
+  stroke-linecap: round;
+}
+
+.temp_line:hover {
+  stroke: black;
+  stroke-width: 4px;
+  stroke-linecap: round;
+}
+
+.temp_rect:hover {
+  stroke: var(--font-color);
+  stroke-width: 2px;
+  transition: ease, 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
