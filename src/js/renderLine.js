@@ -1,13 +1,44 @@
 const mark_size = 10;
 
-async function LineChart(aqdata, container, { tickFormater }) {
+async function LineChart(
+  aqdata,
+  container,
+  {
+    x = ([x]) => x, // given d in data, returns the (temporal) x-value
+    y = ([, y]) => y, // given d in data, returns the (quantitative) y-value
+    z = () => 1, // given d in data, returns the (categorical) z-value
+    title, // given d in data, returns the title text
+    defined, // for gaps in data
+    curve = d3.curveLinear, // method of interpolation between points
+    marginTop = 200, // top margin, in pixels
+    marginRight = 100, // right margin, in pixels
+    marginBottom = 200, // bottom margin, in pixels
+    marginLeft = 50, // left margin, in pixels
+    xType = d3.scaleUtc, // type of x-scale
+    xDomain, // [xmin, xmax]
+    xRange, // [left, right]
+    yType = d3.scaleLinear, // type of y-scale
+    yDomain, // [ymin, ymax]
+    yRange, // [bottom, top]
+    yFormat, // a format specifier string for the y-axis
+    yLabel, // a label for the y-axis
+    zDomain, // array of z-values
+    color = "currentColor", // stroke color of line, as a constant or a function of *z*
+    strokeLinecap, // stroke line cap of line
+    strokeLinejoin, // stroke line join of line
+    strokeWidth = 1.5, // stroke width of line
+    strokeOpacity, // stroke opacity of line
+    mixBlendMode = "multiply", // blend mode of lines
+    voronoi, // show a Voronoi overlay? (for debugging)
+  } = {}
+) {
   const { width, height } = container.node().getBoundingClientRect();
 
   const margin = {
-      top: 200,
-      right: 100,
-      bottom: 200,
-      left: 30,
+      top: marginTop,
+      right: marginRight,
+      bottom: marginBottom,
+      left: marginLeft,
     },
     innerWidth = width - margin.left - margin.right,
     innerHeight = height - margin.top - margin.bottom;
