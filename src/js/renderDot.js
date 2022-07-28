@@ -59,9 +59,9 @@ async function DotPlot(aqdata, container, { tickFormater }) {
   const { width, height } = container.node().getBoundingClientRect();
 
   const margin = {
-      top: 200,
+      top: 100,
       right: 100,
-      bottom: 200,
+      bottom: 100,
       left: 30,
     },
     innerWidth = width - margin.left - margin.right,
@@ -95,15 +95,15 @@ async function DotPlot(aqdata, container, { tickFormater }) {
     "transform",
     `translate(${margin.left},${innerHeight + margin.top})`
   );
-  gy.transition(t).attr("transform", `translate(${margin.left},${margin.top})`);
+  gy.transition(t).attr(
+    "transform",
+    `translate(${margin.left - mark_size},${margin.top})`
+  );
 
   const xValue = (d) => d.day_of_year;
   const yValue = (d) => d.value_final;
 
-  const yScale = d3
-    .scaleLinear()
-    .domain([0, d3.max(data, yValue)])
-    .range([innerHeight, 0]);
+  const yScale = d3.scaleLinear().domain([-10, 50]).range([innerHeight, 0]);
 
   const xScale = d3
     .scaleLinear()
@@ -174,9 +174,9 @@ async function DotPlot_dodge(aqdata, container) {
   const { width, height } = container.node().getBoundingClientRect();
 
   const margin = {
-      top: 30,
+      top: 100,
       right: 100,
-      bottom: 200,
+      bottom: 100,
       left: 30,
     },
     innerWidth = width - margin.left - margin.right,
@@ -321,7 +321,7 @@ async function DotPlot_dodge2(aqdata, container) {
   const { width, height } = container.node().getBoundingClientRect();
 
   const margin = {
-      top: 30,
+      top: 100,
       right: 100,
       bottom: 100,
       left: 30,
@@ -331,7 +331,6 @@ async function DotPlot_dodge2(aqdata, container) {
 
   const data = aqdata
     // .select("date", "year", "decade", "day_of_year", "value_final")
-    .impute({ value_final: () => 0 })
     .derive({ index: (d) => op.row_number() - 1 })
     .objects();
 

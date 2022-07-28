@@ -1,7 +1,7 @@
 // Import the rendder fucntion
 
 import { BubbleMap } from "./src/js/renderMap.js";
-import { LineChart, LineChart_Dot } from "./src/js/renderLine.js";
+import { LineChart } from "./src/js/renderLine.js";
 import { DotPlot, DotPlot_dodge, DotPlot_dodge2 } from "./src/js/renderDot.js";
 import { Histgram, Histgram2 } from "./src/js/renderBar.js";
 
@@ -27,7 +27,8 @@ const sdataPath = "src/data/stations.csv";
 const tdataPath = "src/data/rich_mel_data.csv";
 
 const aq_sdata = await aq.loadCSV(sdataPath);
-const aq_tdata = await aq.loadCSV(tdataPath);
+let aq_tdata = await aq.loadCSV(tdataPath);
+aq_tdata = aq_tdata.impute({ value_final: () => 0 });
 
 const sdata = aq_sdata.objects();
 const tdata = aq_tdata.objects();
@@ -141,14 +142,14 @@ function stepRenderTrigger(index, POI) {
       });
       break;
     case 6:
-      LineChart_Dot(tdataPOInearDays, fig1, {
+      LineChart(tdataPOInearDays, fig1, {
+        tickFormater: tickFormater1,
+      });
+      DotPlot(tdataPOInearDays, fig1, {
         tickFormater: tickFormater1,
       });
       break;
     case 7:
-      LineChart_Dot(tdataPOInearDaysEx, fig1, {
-        tickFormater: tickFormater1,
-      });
       DotPlot(tdataPOInearDaysEx, fig1, {
         tickFormater: tickFormater1,
       });
@@ -160,12 +161,16 @@ function stepRenderTrigger(index, POI) {
       DotPlot_dodge2(tdataPOInearDaysEx, fig1);
       break;
     case 10:
+      DotPlot_dodge2(tdataPOInearDays, fig1);
       break;
     case 11:
+      Histgram(tdataPOInearDays, fig1);
       break;
     case 12:
+      Histgram2(tdataPOInearDays, fig1);
       break;
     case 13:
+      Histgram2(tdataPOIYear, fig1);
       break;
     case 14:
       break;
