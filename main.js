@@ -183,6 +183,7 @@ function stepRenderTrigger(index, POI) {
 function handleResize() {
   // 1. update height of step elements
   const stepH = Math.floor(window.innerHeight * 0.95);
+
   steps
     .style("margin-top", stepH / 2 + "px")
     .style("margin-bottom", stepH / 2 + "px");
